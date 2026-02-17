@@ -1,0 +1,38 @@
+@model Comment
+
+@{
+    ViewData["Title"] = "Comment Details";
+}
+
+<h1>Comment Details</h1>
+
+<div>
+    <h4>Comment</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Content
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Content
+        </dd>
+        <dt class="col-sm-2">
+            Episode
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Episode?.Name
+        </dd>
+        <dt class="col-sm-2">
+            User
+        </dt>
+        <dd class="col-sm-10">
+            @Model.User?.Name
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
+

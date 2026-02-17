@@ -1,0 +1,35 @@
+@model Rating
+
+@{
+    ViewData["Title"] = "Edit Rating";
+}
+
+<h1>Edit Rating</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Stars" class="control-label"></label>
+        <input asp-for="Stars" class="form-control" />
+        <span asp-validation-for="Stars" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PodcastId" class="control-label">Podcast</label>
+        <select asp-for="PodcastId" asp-items="ViewBag.PodcastId" class="form-control"></select>
+        <span asp-validation-for="PodcastId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UserId" class="control-label">User</label>
+        <select asp-for="UserId" asp-items="ViewBag.UserId" class="form-control"></select>
+        <span asp-validation-for="UserId" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

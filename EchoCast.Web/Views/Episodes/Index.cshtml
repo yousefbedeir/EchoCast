@@ -1,0 +1,36 @@
+@model IEnumerable<Episode>
+
+@{
+    ViewData["Title"] = "Episodes";
+}
+
+<h1>Episodes</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New Episode</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Podcast</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Podcast?.Name</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
